@@ -9,6 +9,7 @@ using TMPro;
 public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
 {
     public TabGroup tabGroup;
+    public GameObject panel;
 
     public Image background;
     public TextMeshProUGUI textMesh;
@@ -16,6 +17,7 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
     public void OnPointerClick(PointerEventData eventData)
     {
         tabGroup.OnTabSelected(this);
+        panel?.SetActive(true);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -26,6 +28,7 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
     public void OnPointerExit(PointerEventData eventData)
     {
         tabGroup.OnTabExit(this);
+        panel?.SetActive(false);
     }
 
     // Start is called before the first frame update
