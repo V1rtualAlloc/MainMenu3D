@@ -12,7 +12,7 @@ public class PanelGroup : MonoBehaviour
 
     public void Awake()
     {
-        
+        ShowCurrentPanel();
     }
 
     void ShowCurrentPanel()

@@ -14,11 +14,7 @@ public class TabGroup : MonoBehaviour
     public Color textHover;
     public Color textActive;
     public TabButton selectedTab;
-
-    public void Subscribe(TabButton button)
-    {
-        tabButtons.Add(button);
-    }
+    public List<GameObject> objectsToSwap = new List<GameObject>();
 
     public void OnTabEnter(TabButton button)
     {
@@ -41,16 +37,20 @@ public class TabGroup : MonoBehaviour
         ResetTabs();
         button.background.color = tabActive;
         button.textMesh.color = textActive;
-        int index = button.transform.GetSiblingIndex();
     }
 
     public void ResetTabs()
     {
         foreach (TabButton button in tabButtons)
         {
-            if (selectedTab != null && button == selectedTab) { continue; }
+            if (selectedTab != null && button == selectedTab) 
+            {
+                button.ActivatePanel();
+                continue; 
+            }
             button.background.color = tabIdle;
             button.textMesh.color = textIdle;
+            button.DeactivatePanel();
         }
     }
 

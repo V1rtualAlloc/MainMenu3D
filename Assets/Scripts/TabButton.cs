@@ -17,7 +17,6 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
     public void OnPointerClick(PointerEventData eventData)
     {
         tabGroup.OnTabSelected(this);
-        panel?.SetActive(true);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -28,19 +27,20 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
     public void OnPointerExit(PointerEventData eventData)
     {
         tabGroup.OnTabExit(this);
-        panel?.SetActive(false);
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         background = GetComponent<Image>();
-        tabGroup.Subscribe(this);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ActivatePanel()
     {
-        
+        panel?.SetActive(true);
+    }
+
+    public void DeactivatePanel()
+    {
+        panel?.SetActive(false);
     }
 }
