@@ -1,5 +1,13 @@
 {
   "dependencies": {
+    "com.digitaldreams.mainmenu3d": {
+      "version": "file:com.digitaldreams.MainMenu3D",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.textmeshpro": "3.0.6"
+      }
+    },
     "com.unity.collab-proxy": {
       "version": "1.15.13",
       "depth": 0,

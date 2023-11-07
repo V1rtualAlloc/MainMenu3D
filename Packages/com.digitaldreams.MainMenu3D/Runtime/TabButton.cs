@@ -34,13 +34,8 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
         background = GetComponent<Image>();
     }
 
-    public void ActivatePanel()
+    public void SetPanelActive(bool active)
     {
-        panel?.SetActive(true);
-    }
-
-    public void DeactivatePanel()
-    {
-        panel?.SetActive(false);
+        panel?.SetActive(active);
     }
 }
